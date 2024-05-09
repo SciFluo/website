@@ -4,7 +4,7 @@ export default {
 	...eslintPluginPrettierRecommended,
 	languageOptions: {
 		parserOptions: {
-			ecmaVersion: 12,
+			ecmaVersion: 14,
 			sourceType: "module",
 		},
 	},

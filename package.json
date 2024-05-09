@@ -28,10 +28,9 @@
 		"themes/SciFluo"
 	],
 	"scripts": {
+		"dev": "hexo server",
 		"lint": "eslint . --fix",
 		"pre": "prettier --write .",
-		"dev": "hexo server",
-		"hexo:build": "hexo generate",
 		"elint": "node tools/elint.js",
 		"build": "node ./tools/build.js",
 		"clean": "rimraf build/ node_modules/.cache/ db.json"

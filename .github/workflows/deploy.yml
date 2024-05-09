@@ -31,10 +31,10 @@ jobs:
               run: yarn
 
             - name: 构建主题
-              run: yarn --cwd themes/StellarRealmWikiTheme build
+              run: yarn --cwd themes/SciFluo build
 
             - name: 构建站点
-              run: yarn hexo:build
+              run: yarn build
 
             - name: 上传构建结果
               uses: actions/upload-pages-artifact@v2

@@ -11,7 +11,7 @@ import JsonMinimizerPlugin from "json-minimizer-webpack-plugin";
 export default (env, argv) => {
 	const isDevelopmentMode = argv.mode === "development";
 	return {
-		entry: "./src/main.js",
+		entry: path.resolve("./src/main.js"),
 		output: {
 			path: path.resolve("source"),
 			libraryTarget: "umd",
@@ -77,6 +77,7 @@ export default (env, argv) => {
 		},
 		plugins: [
 			new VueLoaderPlugin(),
+			new webpack.ProgressPlugin(),
 			new MiniCssExtractPlugin({
 				filename: "style.css",
 			}),
