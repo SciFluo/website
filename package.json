@@ -1,0 +1,61 @@
+{
+	"name": "scifluo",
+	"version": "1.0.0",
+	"description": "科荧的站点",
+	"type": "module",
+	"license": "MPL-2.0",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SciFluo/website.git"
+	},
+	"homepage": "https://SciFluo.SharpIce.top",
+	"bugs": {
+		"url": "https://github.com/SciFluo/website/issues"
+	},
+	"author": {
+		"name": "SharpIce",
+		"email": "VupRbl@163.com",
+		"url": "https://SharpIce.top"
+	},
+	"engines": {
+		"node": ">=20"
+	},
+	"hexo": {
+		"version": "7.2.0"
+	},
+	"workspaces": [
+		"themes/SciFluo"
+	],
+	"scripts": {
+		"lint": "eslint . --fix",
+		"pre": "prettier --write .",
+		"dev": "hexo server",
+		"hexo:build": "hexo generate",
+		"elint": "node tools/elint.js",
+		"build": "node ./tools/build.js",
+		"clean": "rimraf build/ node_modules/.cache/ db.json"
+	},
+	"dependencies": {
+		"hexo": "7.2.0",
+		"hexo-generator-feed": "^3.0.0",
+		"hexo-generator-sitemap": "^3.0.1",
+		"hexo-renderer-ejs": "^2.0.0",
+		"hexo-renderer-markdown-it": "^7.1.1",
+		"markdown-it-multimd-table": "^4.2.3"
+	},
+	"devDependencies": {
+		"ejs-lint": "^2.0.0",
+		"eslint": "^9.2.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-prettier": "^5.0.0",
+		"hexo-browsersync": "^0.3.0",
+		"hexo-server": "^3.0.0",
+		"prettier": "^3.0.2",
+		"prettier-plugin-tailwindcss": "^0.5.14",
+		"rimraf": "^5.0.1"
+	},
+	"resolutions": {
+		"browser-sync": "^3.0.2"
+	}
+}

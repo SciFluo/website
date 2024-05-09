@@ -1,0 +1,35 @@
+{
+	"name": "科荧",
+	"short_name": "科荧",
+	"description": "科荧世界观站点",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#4cc3ff",
+	"icons": [
+		{
+			"src": "/favicon.png",
+			"sizes": "800x800",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/favicon.webp",
+			"sizes": "800x800",
+			"type": "image/webp",
+			"purpose": "any"
+		},
+		{
+			"src": "/favicon_180x180.png",
+			"sizes": "180x180",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/favicon.ico",
+			"sizes": "256x256",
+			"type": "image/x-icon",
+			"purpose": "any"
+		}
+	]
+}

@@ -1,0 +1,6 @@
+Sitemap: https://SciFluo.SharpIce.top/sitemap.xml
+
+User-agent: *
+Disallow: /assets/
+Disallow: /404.html
+Disallow: /settings.html

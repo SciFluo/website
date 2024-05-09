@@ -1,0 +1,82 @@
+<header class="navbar bg-base-100 px-4 justify-between select-none bg-opacity-0">
+	<div>
+		<a href="/" class="flex items-center max-sm:hidden" title="科荧">
+			<img src="/favicon.webp" width="42" height="42" aria-hidden="true" />
+			<p class="text-2xl flex items-center">
+				<span class="text-src-blue">科</span>
+				<span class="text-src-yellow">荧</span>
+			</p>
+		</a>
+		<div class="max-sm:dropdown max-sm:dropdown-bottom">
+			<div tabindex="0" role="button" class="hidden max-sm:block">
+				<%- getIcon("outlined/list", 35) %>
+			</div>
+			<ul tabindex="0" class="dropdown-content z-[1] flex flex-row max-sm:menu max-sm:w-32 max-sm:flex-col max-sm:rounded-box max-sm:bg-base-100 max-sm:p-2 max-sm:shadow-md">
+				<li>
+					<a href="/" class="nav-link">
+						<span>
+							<%- getIcon("outlined/home") %>
+						</span>
+						<span>首页</span>
+					</a>
+				</li>
+				<li>
+					<details class="nav-link lg:dropdown lg:dropdown-bottom lg:dropdown-hover">
+						<summary tabindex="0" role="button">百科</summary>
+						<ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-32">
+							<li>
+								<a href="/wiki" class="nav-link">
+									<span>
+										<%- getIcon("outlined/description") %>
+									</span>
+									<span>首页</span>
+								</a>
+							</li>
+							<li>
+								<a href="/wiki/all_pages" class="nav-link">所有页面</a>
+							</li>
+						</ul>
+					</details>
+				</li>
+				<li>
+					<a href="/book/" class="nav-link">
+						<span>
+							<%- getIcon("outlined/menu_book") %>
+						</span>
+						<span>小说</span>
+					</a>
+				</li>
+				<li>
+					<a href="/map/" class="nav-link">
+						<span>
+							<%- getIcon("outlined/location_on") %>
+						</span>
+						<span>地图</span>
+					</a>
+				</li>
+				<li>
+					<a href="/about/" class="nav-link">
+						<span>
+							<%- getIcon("outlined/favorite") %>
+						</span>
+						<span>关于</span>
+					</a>
+				</li>
+				<li>
+					<a href="/settings" class="nav-link">
+						<span>
+							<%- getIcon("outlined/settings") %>
+						</span>
+						<span>设置</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<form class="relative flex items-center">
+		<span class="top-50 absolute left-2">
+			<%- getIcon("outlined/search") %>
+		</span>
+		<input type="text" name="搜索" class="input input-bordered h-8 max-w-sm rounded-xl border px-9 py-54" placeholder="搜索..." />
+	</form>
+</header>

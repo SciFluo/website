@@ -1,0 +1,46 @@
+name: Deploy
+
+on:
+    push:
+        branches: ["main"]
+
+permissions:
+    pages: write
+    id-token: write
+
+jobs:
+    Build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: 迁出 website 分支
+              uses: actions/checkout@v3
+
+            - name: 获取 content
+              uses: actions/checkout@v3
+              with:
+                  repository: "SciFluo/content"
+                  path: "submodule/content"
+
+            - name: 获取NodeJS
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20.11.0"
+                  cache: "yarn"
+
+            - name: 初始化部署环境
+              run: yarn
+
+            - name: 构建主题
+              run: yarn --cwd themes/StellarRealmWikiTheme build
+
+            - name: 构建站点
+              run: yarn hexo:build
+
+            - name: 上传构建结果
+              uses: actions/upload-pages-artifact@v2
+              with:
+                  path: "build"
+
+            - name: 部署到Github页面
+              id: deployment
+              uses: actions/deploy-pages@v2

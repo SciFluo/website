@@ -1,0 +1,12 @@
+# Node模块
+node_modules
+
+# 构建输出文件夹
+/build/
+/themes/*/source
+
+# Hexo 相关
+db.json
+
+# Git 子模块
+/submodule

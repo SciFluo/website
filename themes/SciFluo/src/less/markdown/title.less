@@ -1,0 +1,36 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply relative my-5;
+
+	span {
+		@apply ml-4;
+	}
+
+	&::before {
+		content: "";
+		@apply absolute left-0 top-1/2 h-4/5 w-1 -translate-y-1/2 rounded-xl bg-src-blue;
+	}
+}
+
+h1 {
+	@apply text-3xl;
+}
+h2 {
+	@apply text-2xl;
+}
+h3 {
+	@apply text-xl;
+}
+h4 {
+	@apply text-lg;
+}
+h5 {
+	@apply text-base;
+}
+h6 {
+	@apply text-sm;
+}

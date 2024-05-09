@@ -1,0 +1,15 @@
+{
+	"editor.formatOnSave": true,
+	"yaml.schemaStore.enable": false,
+	"css.customData": [".vscode/tailwind.json"],
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "never"
+	},
+	"tailwindCSS.includeLanguages": {
+		"EJS": "html"
+	},
+	"material-icon-theme.folders.associations": {
+		"submodule": "git",
+		"SciFluo": "theme"
+	}
+}

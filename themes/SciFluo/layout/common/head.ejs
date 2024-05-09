@@ -1,0 +1,119 @@
+<%
+	var url = `${config.url}/${page.path}`
+	var icon = `${config.url}/favicon.ico`
+	var domain = new URL(config.url).host;
+%>
+
+<!-- 编码 -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- 编码 -->
+
+<!-- 标题 -->
+<%
+	var titleContent = config.title;
+
+	// 页面标题设置
+  	if (page.path.startsWith('wiki/')) {
+		titleContent += " - 维基"
+	} else if(page.path.startsWith('book/')) {
+		titleContent += " - 小说"
+	} else if(page.path.startsWith('settings/')) {
+		titleContent += " - 设置"
+	} else if(page.path.startsWith('map/')) {
+		titleContent += " - 地图"
+	}
+
+	// Markdown 相关
+	if (typeof post !== 'undefined' && post.title) {
+		titleContent += ` | ${post.title}`;
+	} else if (typeof page !== 'undefined' && page.title) {
+		titleContent += ` | ${page.title}`;
+	}
+%>
+<title><%= titleContent %></title>
+<meta name="title" content="<%- titleContent %>" />
+<!-- 标题 -->
+
+<!-- 描述 -->
+<%
+	var descriptionContent;
+	if (typeof post !== 'undefined' && post.description) {
+		descriptionContent = post.description;
+	} else if (typeof page !== 'undefined' && page.description) {
+		descriptionContent = page.description;
+	} else {
+		descriptionContent = config.description;
+	}
+%>
+<meta name="description" content="<%- descriptionContent %>" />
+<!-- 描述 -->
+
+<!-- 关键词 -->
+<%
+  let keywordsContent = config.keywords;
+	if (typeof post !== 'undefined' && post.keywords) {
+		keywordsContent += `,${post.keywords}`;
+	} else if (typeof page !== 'undefined' && page.keywords) {
+		keywordsContent += `,${page.keywords}`;
+	}
+%>
+<meta name="keywords" content="<%= keywordsContent  %>" />
+<!-- 关键词 -->
+
+<!-- 图标 -->
+<link rel="icon" type="image/png" sizes="800x800" href="/favicon.png" />
+<link rel="icon" type="image/webp" sizes="800x800" href="/favicon.webp" />
+<link rel="icon" type="image/x-icon" sizes="256x256" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="180x180" href="/favicon_180x180.png" />
+
+<link rel="apple-touch-icon" type="image/png" sizes="800x800" href="/favicon.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="256x256" href="/favicon.ico">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/favicon_180x180.png">
+<!-- 图标 -->
+
+<!-- PWA -->
+<meta name="theme-color" content="#4cc3ff">
+<link rel="manifest" href="/manifest.json" />
+<!-- PWA -->
+
+<!-- 屏幕适配 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 屏幕适配 -->
+
+<!-- Open Graph -->
+<meta property="og:title" content="<%= titleContent %>" />
+<meta property="og:description" content="<%- descriptionContent %>" />
+<!-- <meta property="og:image" content="页面图片路径" /> -->
+<meta property="og:url" content="<%- url %>" />
+<meta property="og:type" content="website" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="<%= titleContent %>" />
+<meta name="twitter:description" content="<%- descriptionContent %>" />
+<!-- <meta name="twitter:image" content="页面图片路径" /> -->
+<meta property="twitter:domain" content="<%- domain %>">
+<meta property="twitter:url" content="<%- url %>">
+<!-- Open Graph -->
+
+<!-- 版权 -->
+<meta name="copyright" content="Copyright © 2024 锐冰龙">
+<!-- 版权 -->
+
+<!-- 作者 -->
+<meta name="author" content="锐冰龙">
+<!-- 作者 -->
+
+<!-- 站点地图 -->
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<!-- 站点地图 -->
+
+<!-- 禁用浏览器扩展 Dark Reader -->
+<meta name="darkreader" content="false">
+<!-- 禁用浏览器扩展 Dark Reader -->
+
+<!-- 其他 -->
+<script src="/main.js" type="module" async></script>
+<link rel="stylesheet" href="/style.css" />
+<!-- 其他 -->

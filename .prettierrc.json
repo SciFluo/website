@@ -1,0 +1,30 @@
+{
+	"semi": true,
+	"tabWidth": 4,
+	"useTabs": true,
+	"singleQuote": false,
+	"trailingComma": "es5",
+	"bracketSameLine": true,
+	"tailwindConfig": "./themes/SciFluo/tailwind.config.js",
+	"plugins": ["prettier-plugin-tailwindcss"],
+	"overrides": [
+		{
+			"files": "*.yml",
+			"options": {
+				"useTabs": false
+			}
+		},
+		{
+			"files": "*.{html,vue,less,css}",
+			"options": {
+				"printWidth": 120
+			}
+		},
+		{
+			"files": "*.md",
+			"options": {
+				"tabWidth": 1
+			}
+		}
+	]
+}

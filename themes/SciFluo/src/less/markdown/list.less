@@ -1,0 +1,16 @@
+ul {
+	li::before {
+		content: "•";
+		@apply mr-2 text-xl text-src-blue;
+	}
+
+	li {
+		@apply mb-0 ml-2 mt-0;
+	}
+}
+ol {
+	@apply ml-4 list-decimal;
+	li {
+		@apply mb-0;
+	}
+}

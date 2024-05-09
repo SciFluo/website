@@ -1,0 +1,155 @@
+# 网站
+title: "科荧"
+subtitle: ""
+description: "科荧世界观站点"
+keywords: SciFluo, Sci_Fluo, SharpIce, Furry, Worldview, OC, 科荧, 设定, 锐冰, 世界观
+author: SharpIce
+language: zh-CN
+timezone: "Asia/Shanghai"
+
+# 网址
+url: https://SciFluo.SharpIce.top
+root: /
+permalink: :title/
+permalink_defaults:
+pretty_urls:
+    trailing_index: false
+    trailing_html: false
+
+# 目录
+source_dir: submodule/content/content
+public_dir: build
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# 文章
+new_post_name: :title.md
+default_layout: post
+auto_spacing: true
+titlecase: false
+external_link:
+    enable: true
+    field: site
+    exclude: ""
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+    enable: false
+    line_number: true
+    auto_detect: false
+    tab_replace: ""
+    wrap: true
+    hljs: false
+prismjs:
+    enable: true
+    preprocess: true
+    line_number: true
+    line_threshold: 0
+    tab_replace: ""
+
+# 分类 & 标签
+default_category: 未分类
+category_map:
+tag_map:
+
+# 日期 / 时间格式
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: "mtime"
+
+# 分页
+per_page: 10
+pagination_dir: page
+
+# 扩展
+theme: SciFluo
+theme_config:
+deploy:
+    type: ""
+meta_generator: true
+
+# 包括或不包括目录和文件
+include:
+exclude:
+ignore:
+
+#################### 插件 ####################
+
+# hexo-browsersync 插件
+browsersync:
+    ui: false
+
+# hexo-renderer-markdown-it 插件
+markdown:
+    preset: "default"
+    render:
+        html: true
+        xhtmlOut: false
+        langPrefix: "language-"
+        breaks: true
+        linkify: true
+        typographer: true
+        quotes: "“”‘’"
+    enable_rules:
+    disable_rules:
+    plugins:
+        - markdown-it-ins
+        - markdown-it-sub
+        - markdown-it-sup
+        - markdown-it-abbr
+        - markdown-it-mark
+        - markdown-it-attrs
+        - markdown-it-emoji
+        - markdown-it-deflist
+        - markdown-it-footnote
+        - markdown-it-container
+        - markdown-it-cjk-breaks
+        - markdown-it-multimd-table
+    anchors:
+        level: 2
+        collisionSuffix: ""
+        permalink: false
+        permalinkClass: "header-anchor"
+        permalinkSide: "left"
+        permalinkSymbol: "¶"
+        case: 0
+        separator: "-"
+    images:
+        lazyload: false
+        prepend_root: false
+        post_asset: false
+    inline: false # https://markdown-it.github.io/markdown-it/#MarkdownIt.renderInline
+
+# 站点地图生成
+sitemap:
+    path:
+        - sitemap.xml
+    rel: true
+    tags: true
+    categories: true
+
+# RSS 订阅
+feed:
+    enable: true
+    type:
+        - atom
+        - rss2
+    path:
+        - atom.xml
+        - rss2.xml
+    limit: false
+    hub:
+    content: true
+    content_limit: 256
+    content_limit_delim: " "
+    order_by: -date
+    icon: favicon.png
+    autodiscovery: true
+    template:

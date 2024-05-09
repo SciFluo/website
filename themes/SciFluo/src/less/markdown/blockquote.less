@@ -1,0 +1,8 @@
+blockquote {
+	@apply relative mb-3 px-3 py-2;
+}
+blockquote::before {
+	content: "";
+	width: 3px;
+	@apply absolute left-0 top-1/2 h-full -translate-y-1/2 rounded-xl bg-src-blue;
+}
