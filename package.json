@@ -55,6 +55,7 @@
 		"rimraf": "^5.0.1"
 	},
 	"resolutions": {
-		"browser-sync": "^3.0.2"
+		"browser-sync": "^3.0.2",
+		"ejs": "^3.1.10"
 	}
 }
