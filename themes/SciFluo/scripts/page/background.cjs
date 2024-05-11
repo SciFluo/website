@@ -2,11 +2,6 @@
 const cheerio = require("cheerio");
 var hexo = hexo || {};
 
-const isURL = (path, url) => {
-	const regexPattern = new RegExp("^" + url.replace(/[*]/g, ".*") + "$");
-	return regexPattern.test(path);
-};
-
 hexo.extend.filter.register("after_render:html", function (htmlContent, data) {
 	const $ = cheerio.load(htmlContent);
 

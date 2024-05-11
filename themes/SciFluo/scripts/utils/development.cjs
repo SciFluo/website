@@ -15,11 +15,8 @@ if (hexo.env.cmd === "server") {
 		"after_render:html",
 		function (htmlContent, data) {
 			// 格式化 HTML
-			const formatHtmlContent = prettier.format(
-				htmlContent,
-				prettierConfig
-			);
-			return formatHtmlContent;
-		}
+			return prettier.format(htmlContent, prettierConfig);
+		},
+		1000
 	);
 }

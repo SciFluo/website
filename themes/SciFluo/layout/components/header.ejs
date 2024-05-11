@@ -23,7 +23,7 @@
 				<li>
 					<details class="nav-link lg:dropdown lg:dropdown-bottom lg:dropdown-hover">
 						<summary tabindex="0" role="button">百科</summary>
-						<ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-32">
+						<ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-opacity-40 bg-base-200 rounded-box w-32">
 							<li>
 								<a href="/wiki" class="nav-link">
 									<span>
@@ -73,10 +73,10 @@
 			</ul>
 		</div>
 	</div>
-	<form class="relative flex items-center">
+	<div class="relative flex items-center">
 		<span class="top-50 absolute left-2">
 			<%- getIcon("outlined/search") %>
 		</span>
-		<input type="text" name="搜索" class="input input-bordered h-8 max-w-sm rounded-xl border px-9 py-54" placeholder="搜索..." />
-	</form>
+		<input id="header_search" type="text" name="搜索" class="input input-bordered h-8 max-w-sm rounded-xl border px-9 py-54 bg-transparent text-gray-400" placeholder="搜索..." />
+	</div>
 </header>

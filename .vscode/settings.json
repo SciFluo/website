@@ -3,7 +3,10 @@
 	"yaml.schemaStore.enable": false,
 	"css.customData": [".vscode/tailwind.json"],
 	"editor.codeActionsOnSave": {
-		"source.fixAll": "never"
+		"source.fixAll": "explicit"
+	},
+	"files.associations": {
+		"*.ejs": "ejs"
 	},
 	"tailwindCSS.includeLanguages": {
 		"EJS": "html"

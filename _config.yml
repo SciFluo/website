@@ -18,7 +18,7 @@ pretty_urls:
 
 # 目录
 source_dir: submodule/content/content
-public_dir: build
+public_dir: build/dist
 tag_dir: tags
 archive_dir: archives
 category_dir: categories

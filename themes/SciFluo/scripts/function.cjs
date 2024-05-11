@@ -13,13 +13,11 @@ hexo.extend.helper.register("getIcon", function (path, size = 24) {
 
 	const $ = cheerio.load(svgFileContent, { xmlMode: true });
 
-	$("svg").attr("width", size);
-	$("svg").attr("height", size);
-
-	const pathElement = $("svg").first();
-	if (pathElement) {
-		pathElement.attr("fill", "currentColor");
-	}
+	$("svg").attr({
+		width: size,
+		height: size,
+		fill: "currentColor",
+	});
 
 	return $.xml();
 });

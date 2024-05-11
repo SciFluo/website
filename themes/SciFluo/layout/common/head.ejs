@@ -12,24 +12,9 @@
 
 <!-- 标题 -->
 <%
-	var titleContent = config.title;
-
-	// 页面标题设置
-  	if (page.path.startsWith('wiki/')) {
-		titleContent += " - 维基"
-	} else if(page.path.startsWith('book/')) {
-		titleContent += " - 小说"
-	} else if(page.path.startsWith('settings/')) {
-		titleContent += " - 设置"
-	} else if(page.path.startsWith('map/')) {
-		titleContent += " - 地图"
-	}
-
-	// Markdown 相关
-	if (typeof post !== 'undefined' && post.title) {
-		titleContent += ` | ${post.title}`;
-	} else if (typeof page !== 'undefined' && page.title) {
-		titleContent += ` | ${page.title}`;
+	var titleContent = config.title
+	if (typeof page !== 'undefined' && page.title) {
+	titleContent = `${titleContent} | ${typeof page !== 'undefined' && page.title}`;
 	}
 %>
 <title><%= titleContent %></title>
@@ -109,8 +94,12 @@
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 <!-- 站点地图 -->
 
+<!-- 网站生成器 -->
+<meta name="generator" content="hexo, webpack">
+<!-- 网站生成器 -->
+
 <!-- 禁用浏览器扩展 Dark Reader -->
-<meta name="darkreader" content="false">
+<!-- <meta name="darkreader" content="false"> -->
 <!-- 禁用浏览器扩展 Dark Reader -->
 
 <!-- 其他 -->
