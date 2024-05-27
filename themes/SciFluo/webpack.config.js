@@ -92,6 +92,14 @@ export default (env, argv) => {
 						from: path.resolve("./public"),
 						to: path.resolve("./source"),
 					},
+					...(isDevelopmentMode
+						? [
+								{
+									from: path.resolve("./test"),
+									to: path.resolve("./source"),
+								},
+							]
+						: {}),
 				],
 			}),
 		],
