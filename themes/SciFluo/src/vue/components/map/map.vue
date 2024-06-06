@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import map from "./main.js";
+import map from './main.js';
 
 export default {
 	mounted() {

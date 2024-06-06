@@ -2,6 +2,9 @@
 	"indent_size": 4,
 	"formatting": true,
 	"editorconfig": true,
+	"jslint_happy": true,
 	"end_with_newline": true,
-	"indent_with_tabs": true
+	"indent_with_tabs": true,
+	"space_after_anon_function": true,
+	"space_after_named_function": true
 }

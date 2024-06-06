@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh" data-overlayscrollbars-initialize>
+<html lang="zh" dir="ltr" data-overlayscrollbars-initialize>
 
 <head>
 	<%- include('common/head.ejs') %>
@@ -7,7 +7,7 @@
 
 <body data-overlayscrollbars-initialize>
 	<%- include('components/header.ejs') %>
-	<div class="flex-1 my-5">
+	<div class="flex-1 p-4">
 		<%
 			const vuePages = 'page/vue.ejs';
   			const templateMapping = {
@@ -26,21 +26,12 @@
 
   			const selectedTemplate = templateMapping[matchedTemplate] || 'page/index.ejs';
 		%>
-		<%- include(selectedTemplate) %></div>
-	<footer class="footer footer-center p-4 text-base-content">
-		<aside class="flex justify-center items-center">
-			<small class="text-base">
-				<span>© 2024 </span>
-				<span>
-					<a class="text-src-blue hover:text-src-blue" href="https://github.com/FurryRbl">锐冰龙(SharpIce)</a>
-				</span>
-				<span> 保留所有权利.</span>
-			</small>
-		</aside>
-	</footer>
-	<noscript class="fixed top-0 flex items-center justify-center w-screen h-screen bg-black bg-opacity-60 text-white select-none space-y-5 flex-col z-10">
-		<p class="text-xl lg:text-4xl">噢豁！你似乎没启用 JavaScript 呢！</p>
-		<p class="text-sm lg:text-xl">为了让科荧世界观站点正常运行，请务必启用 JavaScript 哦！</p>
+		<%- include(selectedTemplate) %>
+	</div>
+	<%- include('components/footer.ejs') %>
+	<noscript class="fixed top-0 flex items-center justify-center w-screen h-screen bg-black bg-opacity-60 text-white select-none space-y-5 flex-col z-50">
+		<p class="text-xl lg:text-4xl">哎呀！看起来你没有启用 JavaScript！</p>
+		<p class="text-sm lg:text-xl">为了正常浏览科荧世界观站点，请开启 JavaScript。</p>
 	</noscript>
 </body>
 

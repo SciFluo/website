@@ -4,10 +4,10 @@
  * @param {string} url - 要检查的URL模式，支持通配符(*)匹配。
  * @returns {boolean} - 如果当前URL与模式匹配，则返回true；否则返回false。
  */
-const isURL = (url) => {
+const isURL = url => {
 	const currentUrl = window.location.pathname;
 
-	const regexPattern = new RegExp("^" + url.replace(/[*]/g, ".*") + "$");
+	const regexPattern = new RegExp('^' + url.replace(/[*]/g, '.*') + '$');
 
 	return regexPattern.test(currentUrl);
 };
@@ -20,7 +20,7 @@ const isURL = (url) => {
  * @returns {*} - 指定属性的值，如果未找到属性则返回undefined。
  */
 const getObjectValueByPath = (obj, path) => {
-	const properties = path.split(".");
+	const properties = path.split('.');
 	let currentValue = obj;
 
 	for (const property of properties) {

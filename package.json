@@ -33,7 +33,7 @@
 		"pre": "prettier --write .",
 		"elint": "node tools/elint.js",
 		"build": "node ./tools/build.js",
-		"clean": "rimraf build/ node_modules/.cache/ db.json"
+		"clean": "rimraf build/ db.json"
 	},
 	"dependencies": {
 		"hexo": "7.2.0",
@@ -44,18 +44,17 @@
 		"markdown-it-multimd-table": "^4.2.3"
 	},
 	"devDependencies": {
+		"@prettier/plugin-xml": "^3.4.1",
 		"ejs-lint": "^2.0.0",
-		"eslint": "^9.3.0",
+		"eslint": "^9.4.0",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-prettier": "^5.0.0",
-		"hexo-browsersync": "^0.3.0",
 		"hexo-server": "^3.0.0",
-		"prettier": "^3.0.2",
-		"prettier-plugin-tailwindcss": "^0.5.14",
+		"prettier": "^3.3.1",
+		"prettier-plugin-tailwindcss": "^0.6.1",
 		"rimraf": "^5.0.7"
 	},
 	"resolutions": {
-		"browser-sync": "^3.0.2",
 		"ejs": "^3.1.10"
 	}
 }

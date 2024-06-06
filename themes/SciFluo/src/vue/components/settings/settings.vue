@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import Switch from "./switch.vue";
-import { toast } from "vue3-toastify";
+import Switch from './switch.vue';
+import { toast } from 'vue3-toastify';
 
 export default {
 	components: {
@@ -36,15 +36,15 @@ export default {
 	methods: {
 		resetSettings() {
 			for (let key in localStorage) {
-				if (key.startsWith("settings.")) {
+				if (key.startsWith('settings.')) {
 					localStorage.removeItem(key);
 				}
 			}
-			toast("设置已重置", {
+			toast('设置已重置', {
 				position: toast.POSITION.TOP_RIGHT,
-				type: "success",
+				type: 'success',
 				autoClose: 800,
-				transition: "bounce",
+				transition: 'bounce',
 			});
 			setTimeout(() => {
 				window.location.reload();

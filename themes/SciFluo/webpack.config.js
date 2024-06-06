@@ -1,68 +1,131 @@
-import path from "path";
-import webpack from "webpack";
-import { VueLoaderPlugin } from "vue-loader";
-import TerserPlugin from "terser-webpack-plugin";
-import CopyWebpackPlugin from "copy-webpack-plugin";
-import localPostcssOptions from "./postcss.config.js";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
-import JsonMinimizerPlugin from "json-minimizer-webpack-plugin";
+import path from 'path';
+import webpack from 'webpack';
+import { VueLoaderPlugin } from 'vue-loader';
+import TerserPlugin from 'terser-webpack-plugin';
+import { minify as minifyXML } from 'minify-xml';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import localPostcssOptions from './postcss.config.js';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import JsonMinimizerPlugin from 'json-minimizer-webpack-plugin';
+
+class XmlMinimizerPlugin {
+	apply(compiler) {
+		compiler.hooks.compilation.tap('XmlMinimizerPlugin', compilation => {
+			compilation.hooks.processAssets.tap(
+				{
+					name: 'XmlMinimizerPlugin',
+					stage: webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE,
+				},
+				assets => {
+					for (const filename in assets) {
+						if (filename.endsWith('.xml')) {
+							let source = assets[filename].source();
+							if (typeof source !== 'string') {
+								source = source.toString();
+							}
+							const compressedXml = minifyXML(source);
+							assets[filename] = {
+								source: () => compressedXml,
+								size: () => compressedXml.length,
+							};
+						}
+					}
+				},
+			);
+		});
+	}
+}
 
 export default (env, argv) => {
-	const isDevelopmentMode = argv.mode === "development";
-	return {
-		entry: path.resolve("./src/main.js"),
+	const isDevelopmentMode = argv.mode === 'development';
+
+	/** @type {import('webpack').Configuration} */
+	const config = {
+		entry: path.resolve('./src/main.js'),
 		output: {
-			path: path.resolve("source"),
-			libraryTarget: "umd",
-			filename: "main.js",
+			path: path.resolve('source'),
+			libraryTarget: 'umd',
+			filename: 'main.js',
+		},
+		devServer: {
+			hot: true,
+			open: false,
+			static: [path.resolve('./public')],
+			devMiddleware: {
+				writeToDisk: true,
+			},
+		},
+		cache: {
+			type: 'filesystem',
 		},
 		module: {
 			rules: [
 				{
-					test: /\.(css|less)$/,
+					test: /\.css$/,
 					use: [
 						MiniCssExtractPlugin.loader,
-						"css-loader",
+						'css-loader',
 						{
-							loader: "postcss-loader",
+							loader: 'postcss-loader',
 							options: {
 								postcssOptions: localPostcssOptions,
 							},
 						},
-						"less-loader",
+					],
+				},
+				{
+					test: /\.less$/,
+					use: [
+						MiniCssExtractPlugin.loader,
+						'css-loader',
+						{
+							loader: 'postcss-loader',
+							options: {
+								postcssOptions: localPostcssOptions,
+							},
+						},
+						'less-loader',
 					],
 				},
 				{
 					test: /\.scss$/,
 					use: [
 						MiniCssExtractPlugin.loader,
-						"css-loader",
-						"sass-loader",
+						'css-loader',
+						{
+							loader: 'postcss-loader',
+							options: {
+								postcssOptions: localPostcssOptions,
+							},
+						},
+						'sass-loader',
 					],
 				},
 				{
 					test: /\.(woff|woff2|eot|ttf|otf)$/,
-					type: "asset/resource",
+					type: 'asset/resource',
 					generator: {
-						filename: "assets/fonts/[name][hash][ext]",
+						filename: 'assets/fonts/[name][hash][ext]',
 					},
 				},
 				{
 					test: /\.svg$/,
-					type: "asset/source",
+					type: 'asset/source',
 				},
 				{
 					test: /\.js$/,
-					exclude: /node_modules/,
 					use: {
-						loader: "babel-loader",
+						loader: 'babel-loader',
+						options: {
+							cacheDirectory: true,
+						},
 					},
 				},
 				{
 					test: /\.vue$/,
 					use: {
-						loader: "vue-loader",
+						loader: 'vue-loader',
 					},
 				},
 			],
@@ -73,13 +136,14 @@ export default (env, argv) => {
 				new TerserPlugin(),
 				new CssMinimizerPlugin(),
 				new JsonMinimizerPlugin(),
+				new XmlMinimizerPlugin(),
 			],
 		},
 		plugins: [
 			new VueLoaderPlugin(),
 			new webpack.ProgressPlugin(),
 			new MiniCssExtractPlugin({
-				filename: "style.css",
+				filename: 'style.css',
 			}),
 			new webpack.DefinePlugin({
 				__VUE_OPTIONS_API__: true,
@@ -89,26 +153,14 @@ export default (env, argv) => {
 			new CopyWebpackPlugin({
 				patterns: [
 					{
-						from: path.resolve("./public"),
-						to: path.resolve("./source"),
+						from: path.resolve('./public'),
+						to: path.resolve('./source'),
 					},
-					...(isDevelopmentMode
-						? [
-								{
-									from: path.resolve("./test"),
-									to: path.resolve("./source"),
-								},
-							]
-						: {}),
 				],
 			}),
 		],
-		watch: isDevelopmentMode,
-		watchOptions: {
-			aggregateTimeout: 300,
-			poll: 1000,
-			ignored: /node_modules|sources/,
-		},
-		devtool: isDevelopmentMode ? "source-map" : false,
+		devtool: isDevelopmentMode ? 'source-map' : false,
 	};
+
+	return config;
 };

@@ -1,21 +1,18 @@
-<header class="navbar bg-base-100 px-4 justify-between select-none bg-opacity-0">
+<header class="navbar px-4 justify-between select-none bg-base-100 min-h-0">
 	<div>
-		<a href="/" class="flex items-center max-sm:hidden" title="科荧">
-			<img src="/favicon.webp" width="42" height="42" aria-hidden="true" />
-			<p class="text-2xl flex items-center">
-				<span class="text-src-blue">科</span>
-				<span class="text-src-yellow">荧</span>
-			</p>
+		<a href="/" class="flex items-center max-sm:hidden mr-2" title="科荧">
+			<img src="/favicon.webp" width="34" height="34" aria-hidden="true" />
+			<p class="text-xl flex items-center text-src-blue">科荧 </p>
 		</a>
 		<div class="max-sm:dropdown max-sm:dropdown-bottom">
 			<div tabindex="0" role="button" class="hidden max-sm:block">
-				<%- getIcon("outlined/list", 35) %>
+				<%- getIcon("outlined/menu", 24) %>
 			</div>
 			<ul tabindex="0" class="dropdown-content z-[1] flex flex-row max-sm:menu max-sm:w-32 max-sm:flex-col max-sm:rounded-box max-sm:bg-base-100 max-sm:p-2 max-sm:shadow-md">
 				<li>
 					<a href="/" class="nav-link">
 						<span>
-							<%- getIcon("outlined/home") %>
+							<%- getIcon("outlined/home", 18) %>
 						</span>
 						<span>首页</span>
 					</a>
@@ -27,7 +24,7 @@
 							<li>
 								<a href="/wiki" class="nav-link">
 									<span>
-										<%- getIcon("outlined/description") %>
+										<%- getIcon("outlined/description", 18) %>
 									</span>
 									<span>首页</span>
 								</a>
@@ -41,15 +38,23 @@
 				<li>
 					<a href="/book/" class="nav-link">
 						<span>
-							<%- getIcon("outlined/menu_book") %>
+							<%- getIcon("outlined/menu_book", 18) %>
 						</span>
 						<span>小说</span>
 					</a>
 				</li>
 				<li>
+					<a href="/explore/" class="nav-link">
+						<span>
+							<%- getIcon("outlined/explore", 18) %>
+						</span>
+						<span>探索</span>
+					</a>
+				</li>
+				<li>
 					<a href="/map/" class="nav-link">
 						<span>
-							<%- getIcon("outlined/location_on") %>
+							<%- getIcon("outlined/location_on", 18) %>
 						</span>
 						<span>地图</span>
 					</a>
@@ -57,7 +62,7 @@
 				<li>
 					<a href="/about/" class="nav-link">
 						<span>
-							<%- getIcon("outlined/favorite") %>
+							<%- getIcon("outlined/favorite", 18) %>
 						</span>
 						<span>关于</span>
 					</a>
@@ -65,7 +70,7 @@
 				<li>
 					<a href="/settings" class="nav-link">
 						<span>
-							<%- getIcon("outlined/settings") %>
+							<%- getIcon("outlined/settings", 18) %>
 						</span>
 						<span>设置</span>
 					</a>
@@ -77,6 +82,6 @@
 		<span class="top-50 absolute left-2">
 			<%- getIcon("outlined/search") %>
 		</span>
-		<input id="header_search" type="text" name="搜索" class="input input-bordered h-8 max-w-sm rounded-xl border px-9 py-54 bg-transparent text-gray-400" placeholder="搜索..." />
+		<input id="header_search" type="text" name="搜索" class="input input-bordered h-8 max-w-sm rounded-xl border px-9 py-4 bg-transparent text-gray-400" placeholder="搜索..." />
 	</div>
 </header>

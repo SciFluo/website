@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import { toast } from "vue3-toastify";
-import Config from "../../../js/utils/config.js";
+import { toast } from 'vue3-toastify';
+import Config from '../../../js/utils/config.js';
 
 export default {
 	props: {
@@ -25,11 +25,11 @@ export default {
 		getBooleanConfig: Config.getBooleanConfig,
 		toggleEevent: function (event) {
 			localStorage.setItem(this.$props.storageKey, event.target.checked);
-			toast("设置已保存", {
+			toast('设置已保存', {
 				position: toast.POSITION.TOP_RIGHT,
-				type: "success",
+				type: 'success',
 				autoClose: 800,
-				transition: "bounce",
+				transition: 'bounce',
 			});
 		},
 	},

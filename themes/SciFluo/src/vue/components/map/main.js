@@ -1,6 +1,6 @@
-import * as three from "three";
-import Swal from "sweetalert2";
-import WebGL from "three/examples/jsm/capabilities/WebGL.js";
+import * as three from 'three';
+import Swal from 'sweetalert2';
+import WebGL from 'three/examples/jsm/capabilities/WebGL.js';
 
 const main = () => {
 	// 创建场景
@@ -15,18 +15,13 @@ const main = () => {
 	scene.add(cube);
 
 	// 创建透视相机
-	const camera = new three.PerspectiveCamera(
-		75,
-		window.innerWidth / window.innerHeight,
-		0.1,
-		1000
-	);
+	const camera = new three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 	camera.position.z = 5;
 
 	// 创建渲染器
 	const renderer = new three.WebGLRenderer();
 	renderer.setSize(window.innerWidth, window.innerHeight);
-	document.getElementById("map").appendChild(renderer.domElement);
+	document.getElementById('map').appendChild(renderer.domElement);
 
 	// 渲染场景
 	function animate() {
@@ -49,9 +44,9 @@ export default () => {
 		main();
 	} else {
 		Swal.fire({
-			title: "您的浏览器似乎不兼容OpenGL！",
+			title: '您的浏览器似乎不兼容OpenGL！',
 			html: WebGL.getWebGLErrorMessage(),
-			icon: "error",
+			icon: 'error',
 		});
 	}
 };

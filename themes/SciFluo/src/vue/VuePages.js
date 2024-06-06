@@ -1,7 +1,7 @@
-import App from "./app.vue";
-import { createApp } from "vue";
-import routes from "./routes.js";
-import { createRouter, createWebHistory } from "vue-router";
+import App from './app.vue';
+import { createApp } from 'vue';
+import routes from './routes.js';
+import { createRouter, createWebHistory } from 'vue-router';
 
 const initialize = () => {
 	const app = createApp(App);
@@ -10,19 +10,15 @@ const initialize = () => {
 		createRouter({
 			history: createWebHistory(),
 			routes,
-		})
+		}),
 	);
 
-	app.mount("#app");
+	app.mount('#app');
 };
 
 export default () => {
-	const mainElement = document.querySelector("main");
-	if (
-		mainElement &&
-		mainElement.id === "app" &&
-		mainElement.getAttribute("data-vue") !== null
-	) {
+	const mainElement = document.querySelector('main');
+	if (mainElement && mainElement.id === 'app' && mainElement.getAttribute('data-vue') !== null) {
 		initialize();
 	}
 };

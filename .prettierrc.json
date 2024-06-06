@@ -2,11 +2,16 @@
 	"semi": true,
 	"tabWidth": 4,
 	"useTabs": true,
-	"singleQuote": false,
-	"trailingComma": "es5",
+	"endOfLine": "lf",
+	"printWidth": 120,
+	"singleQuote": true,
+	"jsxSingleQuote": true,
+	"trailingComma": "all",
+	"arrowParens": "avoid",
 	"bracketSameLine": true,
+	"htmlWhitespaceSensitivity": "strict",
 	"tailwindConfig": "./themes/SciFluo/tailwind.config.js",
-	"plugins": ["prettier-plugin-tailwindcss"],
+	"plugins": ["prettier-plugin-tailwindcss", "@prettier/plugin-xml"],
 	"overrides": [
 		{
 			"files": "*.yml",
@@ -15,15 +20,18 @@
 			}
 		},
 		{
-			"files": "*.{html,vue,less,css}",
+			"files": "*.md",
 			"options": {
-				"printWidth": 120
+				"tabWidth": 2,
+				"useTabs": false
 			}
 		},
 		{
-			"files": "*.md",
+			"files": "*.xml",
 			"options": {
-				"tabWidth": 1
+				"xmlSelfClosingSpace": true,
+				"xmlSortAttributesByKey": true,
+				"xmlQuoteAttributes": "double"
 			}
 		}
 	]

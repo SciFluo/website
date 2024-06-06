@@ -1,5 +1,5 @@
-import utils from "./utils.js";
-import Config from "./utils/config.js";
+import utils from './utils.js';
+import Config from './utils/config.js';
 
 const scrollToNearestHeading = () => {
 	let scrollTimer;
@@ -8,17 +8,16 @@ const scrollToNearestHeading = () => {
 		clearTimeout(scrollTimer);
 
 		scrollTimer = setTimeout(() => {
-			const scrollPosition =
-				window.scrollY || document.documentElement.scrollTop;
+			const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
 			const headings = document.querySelectorAll(
-				"#wiki-content h2, #wiki-content h3, #wiki-content h4, #wiki-content h5, #wiki-content h6"
+				'#wiki-content h2, #wiki-content h3, #wiki-content h4, #wiki-content h5, #wiki-content h6',
 			);
 
 			let closestHeadingId;
 			let closestDistance = Infinity;
 
-			headings.forEach((heading) => {
+			headings.forEach(heading => {
 				const distance = Math.abs(heading.offsetTop - scrollPosition);
 				if (distance < closestDistance) {
 					closestDistance = distance;
@@ -26,11 +25,11 @@ const scrollToNearestHeading = () => {
 				}
 			});
 
-			history.replaceState(null, null, "#" + closestHeadingId);
+			history.replaceState(null, null, '#' + closestHeadingId);
 		}, 100);
 	};
 
-	window.addEventListener("scroll", handleScroll);
+	window.addEventListener('scroll', handleScroll);
 };
 
 const updateTocHighlightOnScroll = () => {
@@ -40,17 +39,16 @@ const updateTocHighlightOnScroll = () => {
 		clearTimeout(scrollTimer);
 
 		scrollTimer = setTimeout(() => {
-			const scrollPosition =
-				window.scrollY || document.documentElement.scrollTop;
+			const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
 			const headings = document.querySelectorAll(
-				"#wiki-content h2, #wiki-content h3, #wiki-content h4, #wiki-content h5, #wiki-content h6"
+				'#wiki-content h2, #wiki-content h3, #wiki-content h4, #wiki-content h5, #wiki-content h6',
 			);
 
 			let closestHeadingId;
 			let closestDistance = Infinity;
 
-			headings.forEach((heading) => {
+			headings.forEach(heading => {
 				const distance = Math.abs(heading.offsetTop - scrollPosition);
 				if (distance < closestDistance) {
 					closestDistance = distance;
@@ -59,35 +57,29 @@ const updateTocHighlightOnScroll = () => {
 			});
 
 			// 移除上一个select.toc
-			const previousLink = document.querySelector(
-				`#toc-root a[class="select-toc"]`
-			);
+			const previousLink = document.querySelector(`#toc-root a[class="select-toc"]`);
 
 			if (previousLink) {
-				previousLink.classList.remove("select-toc");
+				previousLink.classList.remove('select-toc');
 			}
 
 			// 添加select.toc
-			const link = document.querySelector(
-				`#toc-root a[href="#${closestHeadingId}"]`
-			);
+			const link = document.querySelector(`#toc-root a[href="#${closestHeadingId}"]`);
 			if (link) {
-				link.classList.add("select-toc");
-				link.scrollIntoView({ behavior: "smooth" });
+				link.classList.add('select-toc');
+				link.scrollIntoView({ behavior: 'smooth' });
 			}
 		}, 20);
 	};
 
-	window.addEventListener("scroll", handleScroll);
+	window.addEventListener('scroll', handleScroll);
 };
 
 export default () => {
-	if (
-		Config.getBooleanConfig("settings.toc.scroll_change_url.enable", true)
-	) {
+	if (Config.getBooleanConfig('settings.toc.scroll_change_url.enable', true)) {
 		scrollToNearestHeading();
 	}
-	if (utils.isURL("/wiki/*")) {
+	if (utils.isURL('/wiki/*')) {
 		updateTocHighlightOnScroll();
 	}
 };

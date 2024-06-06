@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+	<ShortName>科荧</ShortName>
+	<Description>科荧——搜索</Description>
+	<Url method="GET" template="https://SciFluo.SharpIce.top/search.html?search={searchTerms}" type="text/html" />
+	<Contact>SharpIce@SharpIce.top</Contact>
+	<Tags>科荧世界观站点搜索</Tags>
+	<LongName>科荧世界观站点搜索</LongName>
+	<Image height="256" type="image/x-icon" width="256">https://SciFluo.SharpIce.top/favicon.ico</Image>
+	<Query role="example" searchTerms="角色 锐冰" />
+	<Developer>锐冰龙</Developer>
+	<Attribution>由锐冰龙开发</Attribution>
+	<SyndicationRight>open</SyndicationRight>
+	<AdultContent>false</AdultContent>
+	<Language>zh-CN</Language>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>

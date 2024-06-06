@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import searchIcon from "@material-design-icons/svg/outlined/search.svg";
+import searchIcon from '@material-design-icons/svg/outlined/search.svg';
 
 export default {
 	data() {

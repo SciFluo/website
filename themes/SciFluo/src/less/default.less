@@ -1,7 +1,10 @@
 body {
-	@apply font-serif flex flex-col h-screen selection:bg-src-blue selection:bg-opacity-50 caret-src-blue;
+	@apply flex flex-col;
+	@apply h-screen w-screen;
+	@apply font-serif caret-src-blue;
+	@apply selection:bg-src-blue selection:bg-opacity-50;
 }
 
 .input {
-	@apply placeholder:text-gray-300 text-gray-300;
+	@apply text-gray-300 placeholder:text-gray-300;
 }

@@ -1,7 +1,7 @@
 <%
-	var url = `${config.url}/${page.path}`
-	var icon = `${config.url}/favicon.ico`
-	var domain = new URL(config.url).host;
+	let url = `${config.url}/${page.path}`
+	let icon = `${config.url}/favicon.ico`
+	let domain = new URL(config.url).host;
 %>
 
 <!-- 编码 -->
@@ -12,7 +12,7 @@
 
 <!-- 标题 -->
 <%
-	var titleContent = config.title
+	let titleContent = config.title
 	if (typeof page !== 'undefined' && page.title) {
 	titleContent = `${titleContent} | ${typeof page !== 'undefined' && page.title}`;
 	}
@@ -23,7 +23,7 @@
 
 <!-- 描述 -->
 <%
-	var descriptionContent;
+	let descriptionContent;
 	if (typeof post !== 'undefined' && post.description) {
 		descriptionContent = post.description;
 	} else if (typeof page !== 'undefined' && page.description) {
@@ -64,7 +64,7 @@
 <!-- PWA -->
 
 <!-- 屏幕适配 -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover">
 <!-- 屏幕适配 -->
 
 <!-- Open Graph -->
@@ -98,11 +98,34 @@
 <meta name="generator" content="hexo, webpack">
 <!-- 网站生成器 -->
 
+<!-- 基准网址 -->
+<%
+	let canonicalUrl = `${config.url}/${page.canonical_path}`;
+
+	if (canonicalUrl.endsWith("index.html")) {
+		canonicalUrl = canonicalUrl.slice(0, -10);
+	} else {
+		if (!canonicalUrl.endsWith("/")) {
+			canonicalUrl += "/";
+		}
+	}
+%>
+<link rel="canonical" href="<%= canonicalUrl %>" />
+<!-- 基准网址 -->
+
+<!-- OpenSearch -->
+<link rel="search" type="application/opensearchdescription+xml" href="<%= config.url %>/open_search.xml" title="科荧" />
+<!-- OpenSearch -->
+
+<!-- 许可证 -->
+<link rel="license" href="<%= config.url %>/about" />
+<!-- 许可证 -->
+
 <!-- 禁用浏览器扩展 Dark Reader -->
-<!-- <meta name="darkreader" content="false"> -->
+<meta name="darkreader" content="false">
 <!-- 禁用浏览器扩展 Dark Reader -->
 
 <!-- 其他 -->
-<script src="/main.js" type="module" async></script>
+<script src="/main.js" async></script>
 <link rel="stylesheet" href="/style.css" />
 <!-- 其他 -->

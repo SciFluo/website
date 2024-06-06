@@ -1,8 +1,8 @@
 const getBooleanConfig = (storageKey, defaultValue) => {
 	const value = localStorage.getItem(storageKey);
-	if (value === "true") {
+	if (value === 'true') {
 		return true;
-	} else if (value === "false") {
+	} else if (value === 'false') {
 		return false;
 	} else {
 		return defaultValue;
@@ -10,10 +10,8 @@ const getBooleanConfig = (storageKey, defaultValue) => {
 };
 
 const fast = {
-	"settings.pangu.enable": () =>
-		getBooleanConfig("settings.pangu.enable", false),
-	"settings.toc.scroll_change_url.enable": () =>
-		getBooleanConfig("settings.toc.scroll_change_url.enable", true),
+	'settings.pangu.enable': () => getBooleanConfig('settings.pangu.enable', false),
+	'settings.toc.scroll_change_url.enable': () => getBooleanConfig('settings.toc.scroll_change_url.enable', true),
 };
 
 export default {
