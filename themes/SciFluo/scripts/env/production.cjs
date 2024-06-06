@@ -13,7 +13,7 @@ const minifyConfig = {
 	minifyJS: true,
 };
 
-if (hexo.env.cmd === 'generate') {
+if (hexo.env.cmd !== 'server') {
 	hexo.extend.filter.register(
 		'after_render:html',
 		async function (htmlContent) {
