@@ -1,6 +1,6 @@
+import swal from 'sweetalert';
 import * as three from 'three';
-import Swal from 'sweetalert2';
-import WebGL from 'three/examples/jsm/capabilities/WebGL.js';
+import * as compatibilityCheck from '../../../js/compatibilityCheck.js';
 
 const main = () => {
 	// 创建场景
@@ -39,14 +39,5 @@ const main = () => {
 };
 
 export default () => {
-	// 检查 WebGL兼容性
-	if (WebGL.isWebGLAvailable()) {
-		main();
-	} else {
-		Swal.fire({
-			title: '您的浏览器似乎不兼容OpenGL！',
-			html: WebGL.getWebGLErrorMessage(),
-			icon: 'error',
-		});
-	}
+	//
 };

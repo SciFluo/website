@@ -10,16 +10,17 @@ import 'vue3-toastify/dist/index.css';
 import LazyLoad from 'vanilla-lazyload';
 import { Fancybox } from '@fancyapps/ui';
 import vuePages from './vue/VuePages.js';
-import 'sweetalert2/src/sweetalert2.scss';
 import Config from './js/utils/config.js';
 import 'overlayscrollbars/overlayscrollbars.css';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import { OverlayScrollbars } from 'overlayscrollbars';
+import compatibilityCheck from './js/compatibilityCheck.js';
 import '@chinese-fonts/lxgwwenkai/dist/LXGWWenKai-Regular/result.css';
 import { zh_CN as Fancybox_zh_CN } from '@fancyapps/ui/dist/fancybox/l10n/zh_CN.esm.js';
 
 const initialize = () => {
 	Promise.all([
+		compatibilityCheck(),
 		new Promise((resolve, reject) => {
 			// 初始化OverlayScrollbars
 			OverlayScrollbars(document.body, {});

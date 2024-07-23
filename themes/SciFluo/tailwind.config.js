@@ -15,10 +15,10 @@ export default {
 		extend: {
 			colors: {
 				src: {
-					blue: '#65e2ff',
-					green: '#65ffc9',
-					purple: '#9965ff',
-					yellow: '#fff265',
+					blue: '#87cefa',
+					green: '#66ffe6',
+					purple: '#7b68ee',
+					yellow: '#ffff74',
 				},
 			},
 			fontFamily: {

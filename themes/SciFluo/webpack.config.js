@@ -48,9 +48,12 @@ export default (env, argv) => {
 			libraryTarget: 'umd',
 			filename: 'main.js',
 		},
+		/** @type {import('webpack-dev-server').Configuration} */
 		devServer: {
 			hot: true,
+			port: 4001,
 			open: false,
+			host: '127.0.0.1',
 			static: [path.resolve('./public')],
 			devMiddleware: {
 				writeToDisk: true,
@@ -115,6 +118,7 @@ export default (env, argv) => {
 				},
 				{
 					test: /\.js$/,
+					exclude: /node_modules/,
 					use: {
 						loader: 'babel-loader',
 						options: {
