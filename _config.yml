@@ -2,7 +2,7 @@
 title: '科荧'
 subtitle: ''
 description: '科荧世界观站点'
-keywords: SciFluo, Sci_Fluo, SharpIce, Furry, Worldview, OC, 科荧, 设定, 锐冰, 世界观
+keywords: SciFluo, Sci_Fluo, SharpIce, Furry, fictional universe, fictional world, OC, 科荧, 设定, 锐冰, 世界观, 架空世界, 架空世界观
 author: SharpIce
 language: zh-CN
 timezone: 'Asia/Shanghai'
@@ -75,6 +75,11 @@ deploy:
     type: ''
 meta_generator: true
 
+# 服务器设置
+server:
+    port: 8000
+    ip: 127.0.0.1
+
 # 包括或不包括目录和文件
 include:
 exclude:
@@ -122,30 +127,3 @@ markdown:
         prepend_root: false
         post_asset: false
     inline: false # https://markdown-it.github.io/markdown-it/#MarkdownIt.renderInline
-
-# 站点地图生成
-sitemap:
-    path:
-        - sitemap.xml
-    rel: true
-    tags: true
-    categories: true
-
-# RSS 订阅
-feed:
-    enable: true
-    type:
-        - atom
-        - rss2
-    path:
-        - atom.xml
-        - rss2.xml
-    limit: false
-    hub:
-    content: true
-    content_limit: 256
-    content_limit_delim: ' '
-    order_by: -date
-    icon: favicon.png
-    autodiscovery: true
-    template:

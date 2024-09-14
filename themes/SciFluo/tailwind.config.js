@@ -1,5 +1,4 @@
 import daisyui from 'daisyui';
-import tailwindcss from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
@@ -10,19 +9,19 @@ export default {
 		'./scripts/**/*.js',
 		'../../submodule/content/content/**/*.md',
 	],
-	plugins: [tailwindcss, daisyui],
+	plugins: [daisyui],
 	theme: {
 		extend: {
 			colors: {
 				src: {
-					blue: '#65e2ff',
-					green: '#65ffc9',
-					purple: '#9965ff',
-					yellow: '#fff265',
+					blue: '#87cefa',
+					green: '#66ffe6',
+					purple: '#7b68ee',
+					yellow: '#ffff74',
 				},
 			},
 			fontFamily: {
-				serif: ['LXGW WenKai', 'Noto Color Emoji', ...defaultTheme.fontFamily.serif],
+				default: ['LXGW WenKai', 'Noto Color Emoji', ...defaultTheme.fontFamily.serif],
 			},
 		},
 	},

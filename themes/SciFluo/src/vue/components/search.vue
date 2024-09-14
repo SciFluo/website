@@ -8,8 +8,9 @@
 					<input
 						type="text"
 						name="搜索"
-						class="py-54 h-12 w-full rounded-xl border px-9"
-						placeholder="搜索..." />
+						class="input-src-blue input h-12 w-full rounded-xl border bg-transparent px-9 py-5"
+						placeholder="搜索..."
+						v-html="searchContent" />
 				</div>
 			</div>
 		</div>
@@ -23,6 +24,7 @@ export default {
 	data() {
 		return {
 			searchIcon,
+			searchContent: '',
 		};
 	},
 };

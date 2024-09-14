@@ -9,10 +9,7 @@
 		"*.ejs": "ejs"
 	},
 	"tailwindCSS.includeLanguages": {
-		"EJS": "html"
-	},
-	"material-icon-theme.folders.associations": {
-		"submodule": "git",
-		"SciFluo": "theme"
+		"ejs": "html",
+		"vue": "html"
 	}
 }

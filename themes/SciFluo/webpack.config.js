@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+import WebpackBar from 'webpackbar';
 import { VueLoaderPlugin } from 'vue-loader';
 import TerserPlugin from 'terser-webpack-plugin';
 import { minify as minifyXML } from 'minify-xml';
@@ -42,15 +43,20 @@ export default (env, argv) => {
 
 	/** @type {import('webpack').Configuration} */
 	const config = {
-		entry: path.resolve('./src/main.js'),
+		entry: {
+			scifluo: path.resolve('./src/main.js'),
+		},
 		output: {
 			path: path.resolve('source'),
-			libraryTarget: 'umd',
-			filename: 'main.js',
+			libraryTarget: 'umd2',
+			filename: 'assets/js/[name].bundle.js',
 		},
+		/** @type {import('webpack-dev-server').Configuration} */
 		devServer: {
 			hot: true,
+			port: Math.floor(Math.random() * 10001) + 10000,
 			open: false,
+			host: '127.0.0.1',
 			static: [path.resolve('./public')],
 			devMiddleware: {
 				writeToDisk: true,
@@ -89,21 +95,7 @@ export default (env, argv) => {
 					],
 				},
 				{
-					test: /\.scss$/,
-					use: [
-						MiniCssExtractPlugin.loader,
-						'css-loader',
-						{
-							loader: 'postcss-loader',
-							options: {
-								postcssOptions: localPostcssOptions,
-							},
-						},
-						'sass-loader',
-					],
-				},
-				{
-					test: /\.(woff|woff2|eot|ttf|otf)$/,
+					test: /\.(woff|woff2)$/,
 					type: 'asset/resource',
 					generator: {
 						filename: 'assets/fonts/[name][hash][ext]',
@@ -115,6 +107,7 @@ export default (env, argv) => {
 				},
 				{
 					test: /\.js$/,
+					exclude: /node_modules/,
 					use: {
 						loader: 'babel-loader',
 						options: {
@@ -140,15 +133,17 @@ export default (env, argv) => {
 			],
 		},
 		plugins: [
-			new VueLoaderPlugin(),
-			new webpack.ProgressPlugin(),
-			new MiniCssExtractPlugin({
-				filename: 'style.css',
+			new WebpackBar({
+				color: '#87cefa',
 			}),
 			new webpack.DefinePlugin({
 				__VUE_OPTIONS_API__: true,
 				__VUE_PROD_DEVTOOLS__: isDevelopmentMode,
 				__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: false,
+			}),
+			new VueLoaderPlugin(),
+			new MiniCssExtractPlugin({
+				filename: 'assets/css/[name].css',
 			}),
 			new CopyWebpackPlugin({
 				patterns: [
@@ -159,7 +154,7 @@ export default (env, argv) => {
 				],
 			}),
 		],
-		devtool: isDevelopmentMode ? 'source-map' : false,
+		devtool: 'source-map',
 	};
 
 	return config;

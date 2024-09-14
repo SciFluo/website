@@ -6,3 +6,16 @@
 	z-index: -1;
 	@apply fixed h-screen w-screen bg-cover bg-center bg-no-repeat;
 }
+
+.min-h-auto {
+	min-height: auto;
+}
+
+.input-src-blue {
+	@apply border-src-blue;
+
+	&:focus,
+	&:focus-within {
+		@apply border-src-blue outline-src-blue;
+	}
+}

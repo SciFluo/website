@@ -1,5 +1,5 @@
-<header class="navbar px-4 justify-between select-none bg-base-100 min-h-0">
-	<div>
+<header role="banner" class="navbar px-4 justify-between select-none bg-base-100 min-h-auto">
+	<nav role="navigation">
 		<a href="/" class="flex items-center max-sm:hidden mr-2" title="科荧">
 			<img src="/favicon.webp" width="34" height="34" aria-hidden="true" />
 			<p class="text-xl flex items-center text-src-blue">科荧 </p>
@@ -8,7 +8,7 @@
 			<div tabindex="0" role="button" class="hidden max-sm:block">
 				<%- getIcon("outlined/menu", 24) %>
 			</div>
-			<ul tabindex="0" class="dropdown-content z-[1] flex flex-row max-sm:menu max-sm:w-32 max-sm:flex-col max-sm:rounded-box max-sm:bg-base-100 max-sm:p-2 max-sm:shadow-md">
+			<ul tabindex="0" role="button" aria-label="打开菜单" class="dropdown-content z-[1] flex flex-row max-sm:menu max-sm:w-28 max-sm:flex-col max-sm:rounded-box max-sm:bg-base-100 max-sm:p-2 max-sm:shadow-md">
 				<li>
 					<a href="/" class="nav-link">
 						<span>
@@ -19,8 +19,8 @@
 				</li>
 				<li>
 					<details class="nav-link lg:dropdown lg:dropdown-bottom lg:dropdown-hover">
-						<summary tabindex="0" role="button">百科</summary>
-						<ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-opacity-40 bg-base-200 rounded-box w-32">
+						<summary tabindex="0" role="button" aria-expanded="false">百科</summary>
+						<ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-opacity-85 bg-base-200 rounded-box w-24">
 							<li>
 								<a href="/wiki" class="nav-link">
 									<span>
@@ -77,11 +77,11 @@
 				</li>
 			</ul>
 		</div>
-	</div>
+	</nav>
 	<div class="relative flex items-center">
 		<span class="top-50 absolute left-2">
 			<%- getIcon("outlined/search") %>
 		</span>
-		<input id="header_search" type="text" name="搜索" class="input input-bordered h-8 max-w-sm rounded-xl border px-9 py-4 bg-transparent text-gray-400" placeholder="搜索..." />
+		<input id="header_search" type="text" name="搜索" aria-label="搜索" class="input input-bordered input-src-blue h-8 max-sm:max-w-xs max-w-sm rounded-xl px-9 py-4 bg-transparent" placeholder="搜索..." />
 	</div>
 </header>
