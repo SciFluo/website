@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh" dir="ltr">
+
+<head>
+	<%- include('common/head.ejs') %>
+</head>
+
+<body data-overlayscrollbars-initialize>
+	<%- include('components/header.ejs') %>
+	<div class="flex-1 p-4">
+		<%- include(getPage(page.path)) %>
+	</div>
+	<%- include('components/footer.ejs') %>
+	<%- include('components/noscript.ejs') %>
+</body>
+
+</html>

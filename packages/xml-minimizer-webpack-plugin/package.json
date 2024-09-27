@@ -1,0 +1,12 @@
+{
+	"name": "xml-minimizer-webpack-plugin",
+	"version": "1.0.0",
+	"type": "module",
+	"license": "MPL-2.0",
+	"main": "src/main.js",
+	"private": true,
+	"dependencies": {
+		"minify-xml": "^4.4.1",
+		"webpack": "^5.89.0"
+	}
+}

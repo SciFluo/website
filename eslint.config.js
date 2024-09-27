@@ -1,17 +1,19 @@
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
+/** @type {import('eslint').Linter.Config[]} */
 export default [
 	eslintPluginPrettierRecommended,
 	{
 		languageOptions: {
 			parserOptions: {
-				ecmaVersion: 14,
+				ecmaVersion: 'latest',
 				sourceType: 'module',
 			},
 		},
 		rules: {
 			eqeqeq: ['error', 'always'],
+			'prettier/prettier': ['off', 'always'],
 		},
-		ignores: ['node_modules', '/build', '/themes/*/source', '/submodule'],
+		ignores: ['node_modules', '/build', '/packages/hexo-theme-scifluo/source', '/submodule'],
 	},
 ];

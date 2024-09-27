@@ -1,0 +1,8 @@
+{
+	"name": "hexo-permalink",
+	"version": "1.0.0",
+	"type": "commonjs",
+	"license": "MPL-2.0",
+	"main": "src/main.js",
+	"private": true
+}

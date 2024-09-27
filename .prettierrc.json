@@ -10,8 +10,8 @@
 	"arrowParens": "avoid",
 	"bracketSameLine": true,
 	"htmlWhitespaceSensitivity": "strict",
-	"tailwindConfig": "./themes/SciFluo/tailwind.config.js",
-	"plugins": ["prettier-plugin-tailwindcss", "@prettier/plugin-xml"],
+	"tailwindConfig": "./packages/hexo-theme-scifluo/tailwind.config.js",
+	"plugins": ["@prettier/plugin-xml", "prettier-plugin-tailwindcss"],
 	"overrides": [
 		{
 			"files": "*.yml",
@@ -32,6 +32,14 @@
 				"xmlSelfClosingSpace": true,
 				"xmlSortAttributesByKey": true,
 				"xmlQuoteAttributes": "double"
+			}
+		},
+		{
+			"files": "*.sh",
+			"options": {
+				"minify": false,
+				"spaceRedirects": true,
+				"switchCaseIndent": true
 			}
 		}
 	]

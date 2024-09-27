@@ -2,11 +2,14 @@
 node_modules
 
 # 构建输出文件夹
-/build/
-/themes/*/source
+/build
+/packages/hexo-theme-scifluo/source
 
 # Hexo 相关
 db.json
 
 # Git 子模块
 /submodule
+
+# pnpm
+/pnpm-lock.yaml

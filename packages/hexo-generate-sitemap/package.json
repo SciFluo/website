@@ -1,0 +1,16 @@
+{
+	"name": "hexo-generate-sitemap",
+	"version": "1.0.0",
+	"type": "commonjs",
+	"license": "MPL-2.0",
+	"main": "src/main.js",
+	"private": true,
+	"dependencies": {
+		"luxon": "^3.5.0",
+		"xml2js": "^0.6.2"
+	},
+	"devDependencies": {
+		"@types/luxon": "^3.4.2",
+		"@types/xml2js": "^0.4.14"
+	}
+}

@@ -1,11 +1,11 @@
 {
 	"name": "@scifluo/website",
+	"description": "科荧架空世界观网站",
 	"version": "1.0.0",
-	"description": "科荧的站点",
-	"type": "module",
 	"license": "MPL-2.0",
-	"private": true,
+	"type": "module",
 	"homepage": "https://SciFluo.SharpIce.top",
+	"private": true,
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/SciFluo/website.git"
@@ -24,37 +24,42 @@
 	"hexo": {
 		"version": "7.3.0"
 	},
-	"workspaces": [
-		"themes/SciFluo"
-	],
 	"scripts": {
 		"dev": "hexo server",
+		"build": "node build.js",
 		"lint": "eslint . --fix",
 		"pre": "prettier --write .",
-		"elint": "node tools/elint.js",
-		"build": "node ./tools/build.js",
-		"clean": "rimraf build/ db.json"
+		"clean": "rimraf build db.json",
+		"elint": "ejslint packages/hexo-theme-scifluo/layout"
 	},
 	"dependencies": {
 		"hexo": "7.3.0",
+		"hexo-add-tips": "link:packages\\hexo-add-tips",
+		"hexo-generate-sitemap": "link:packages\\hexo-generate-sitemap",
+		"hexo-generate-toc": "link:packages\\hexo-generate-toc",
+		"hexo-local-url": "link:packages\\hexo-local-url",
+		"hexo-minify-html": "link:packages\\hexo-minify-html",
+		"hexo-permalink": "link:packages\\hexo-permalink",
+		"hexo-prettier": "link:packages\\hexo-prettier",
+		"hexo-render-markdown-it": "link:packages\\hexo-render-markdown-it",
 		"hexo-renderer-ejs": "^2.0.0",
-		"hexo-renderer-markdown-it": "^7.1.1",
-		"markdown-it-multimd-table": "^4.2.3"
+		"hexo-server": "^3.0.0",
+		"hexo-theme-scifluo": "link:packages\\hexo-theme-scifluo"
 	},
 	"devDependencies": {
 		"@prettier/plugin-xml": "^3.4.1",
-		"ejs-lint": "^2.0.0",
-		"eslint": "^9.10.0",
+		"@scifluo-infrastructure/elint": "link:packages\\elint",
+		"eslint": "^9.11.0",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-prettier": "^5.2.1",
-		"hexo-server": "^3.0.0",
 		"prettier": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.6",
 		"rimraf": "^6.0.1"
 	},
-	"resolutions": {
-		"hexo": "7.3.0",
-		"ejs": "^3.1.10",
-		"moment": "^2.30.1"
+	"pnpm": {
+		"overrides": {
+			"hexo": "7.3.0",
+			"ejs": "^3.1.10"
+		}
 	}
 }

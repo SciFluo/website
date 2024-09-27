@@ -7,6 +7,7 @@
 		"dbaeumer.vscode-eslint",
 		"bradlc.vscode-tailwindcss",
 		"editorconfig.editorconfig",
+		"bradlc.vscode-tailwindcss",
 		"deque-systems.vscode-axe-linter",
 		"qassimfarid.ejs-language-support",
 		"digitalbrainstem.javascript-ejs-support"
