@@ -3,7 +3,6 @@ import pangu from 'pangu';
 import toc from './js/toc.js';
 import '@fontsource/lxgw-wenkai';
 import utils from './js/utils.js';
-import Search from './js/search.js';
 import '@fontsource/noto-color-emoji';
 import 'vue3-toastify/dist/index.css';
 import LazyLoad from 'vanilla-lazyload';
@@ -22,11 +21,6 @@ const initialize = () => {
 		new Promise((resolve, reject) => {
 			// 初始化OverlayScrollbars
 			OverlayScrollbars(document.body, {});
-			resolve();
-		}),
-		new Promise((resolve, reject) => {
-			// 初始化搜索
-			Search();
 			resolve();
 		}),
 		new Promise((resolve, reject) => {

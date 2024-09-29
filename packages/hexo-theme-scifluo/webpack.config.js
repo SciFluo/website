@@ -1,12 +1,10 @@
 import path from 'path';
 import webpack from 'webpack';
-import WebpackBar from 'webpackbar';
 import { VueLoaderPlugin } from 'vue-loader';
 import TerserPlugin from 'terser-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import localPostcssOptions from './postcss.config.js';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import XmlMinimizerPlugin from 'xml-minimizer-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import JsonMinimizerPlugin from 'json-minimizer-webpack-plugin';
 
@@ -20,8 +18,10 @@ export default (env, argv) => {
 		},
 		output: {
 			path: path.resolve('source'),
-			libraryTarget: 'umd2',
 			filename: 'assets/js/[name].bundle.js',
+			library: {
+				type: 'umd2',
+			},
 		},
 		/** @type {import('webpack-dev-server').Configuration} */
 		devServer: {
@@ -97,18 +97,10 @@ export default (env, argv) => {
 		},
 		optimization: {
 			minimize: isDevelopmentMode ? false : true,
-			minimizer: [
-				new TerserPlugin(),
-				new CssMinimizerPlugin(),
-				new JsonMinimizerPlugin(),
-				new XmlMinimizerPlugin(),
-			],
+			minimizer: [new TerserPlugin(), new CssMinimizerPlugin(), new JsonMinimizerPlugin()],
 		},
 		plugins: [
-			new WebpackBar({
-				name: 'SciFluo',
-				color: '#87cefa',
-			}),
+			new webpack.ProgressPlugin(),
 			new webpack.DefinePlugin({
 				__VUE_OPTIONS_API__: true,
 				__VUE_PROD_DEVTOOLS__: isDevelopmentMode,

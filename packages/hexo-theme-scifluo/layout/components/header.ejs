@@ -18,25 +18,15 @@
 					</a>
 				</li>
 				<li>
-					<details class="nav-link lg:dropdown lg:dropdown-bottom lg:dropdown-hover">
-						<summary tabindex="0" role="button" aria-expanded="false">百科</summary>
-						<ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-opacity-85 bg-base-200 rounded-box w-24">
-							<li>
-								<a href="/wiki" class="nav-link">
-									<span>
-										<%- getIcon("outlined/description", 18) %>
-									</span>
-									<span>首页</span>
-								</a>
-							</li>
-							<li>
-								<a href="/wiki/all_pages" class="nav-link">所有页面</a>
-							</li>
-						</ul>
-					</details>
+					<a href="/wiki" class="nav-link">
+						<span>
+							<%- getIcon("outlined/description", 18) %>
+						</span>
+						<span>百科</span>
+					</a>
 				</li>
 				<li>
-					<a href="/book/" class="nav-link">
+					<a href="/book" class="nav-link">
 						<span>
 							<%- getIcon("outlined/menu_book", 18) %>
 						</span>
@@ -44,7 +34,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="/explore/" class="nav-link">
+					<a href="/explore" class="nav-link">
 						<span>
 							<%- getIcon("outlined/explore", 18) %>
 						</span>
@@ -52,36 +42,25 @@
 					</a>
 				</li>
 				<li>
-					<a href="/map/" class="nav-link">
+					<a href="/map" class="nav-link">
 						<span>
 							<%- getIcon("outlined/location_on", 18) %>
 						</span>
 						<span>地图</span>
 					</a>
 				</li>
-				<li>
-					<a href="/about/" class="nav-link">
-						<span>
-							<%- getIcon("outlined/favorite", 18) %>
-						</span>
-						<span>关于</span>
-					</a>
-				</li>
-				<li>
-					<a href="/settings" class="nav-link">
-						<span>
-							<%- getIcon("outlined/settings", 18) %>
-						</span>
-						<span>设置</span>
-					</a>
-				</li>
 			</ul>
 		</div>
 	</nav>
 	<div class="relative flex items-center">
-		<span class="top-50 absolute left-2">
-			<%- getIcon("outlined/search") %>
-		</span>
-		<input id="header_search" type="text" name="搜索" aria-label="搜索" class="input input-bordered input-src-blue h-8 max-sm:max-w-xs max-w-sm rounded-xl px-9 py-4 bg-transparent" placeholder="搜索..." />
+		<nav>
+			<ul>
+				<li>
+					<a href="/settings" title="设置" class="nav-link">
+						<%- getIcon("outlined/settings", 20) %>
+					</a>
+				</li>
+			</ul>
+		</nav>
 	</div>
 </header>
