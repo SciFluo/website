@@ -10,7 +10,7 @@
 	"arrowParens": "avoid",
 	"bracketSameLine": true,
 	"htmlWhitespaceSensitivity": "strict",
-	"tailwindConfig": "./packages/hexo-theme-scifluo/tailwind.config.js",
+	"tailwindConfig": "./packages/hexo-theme-scifluo/tailwind.config.ts",
 	"plugins": ["@prettier/plugin-xml", "prettier-plugin-tailwindcss"],
 	"overrides": [
 		{

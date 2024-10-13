@@ -1,13 +1,15 @@
+import pluginVue from 'eslint-plugin-vue';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+	...pluginVue.configs['flat/recommended'],
 	eslintPluginPrettierRecommended,
 	{
 		languageOptions: {
 			parserOptions: {
-				ecmaVersion: 'latest',
 				sourceType: 'module',
+				ecmaVersion: 'latest',
 			},
 		},
 		rules: {

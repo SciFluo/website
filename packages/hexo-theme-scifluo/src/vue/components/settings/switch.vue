@@ -2,7 +2,7 @@
 	<input
 		type="checkbox"
 		class="toggle rounded-full checked:border-src-blue checked:bg-src-blue"
-		:checked="getBooleanConfig(this.$props.storageKey, this.$props.defaultValue)"
+		:checked="getBooleanConfig($props.storageKey, $props.defaultValue)"
 		@change="toggleEevent" />
 </template>
 
@@ -11,6 +11,7 @@ import { toast } from 'vue3-toastify';
 import Config from '../../../js/utils/config.js';
 
 export default {
+	name: 'SciFluoComponentsSwitch',
 	props: {
 		storageKey: {
 			type: String,

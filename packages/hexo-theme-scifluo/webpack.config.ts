@@ -2,17 +2,18 @@ import path from 'path';
 import webpack from 'webpack';
 import { VueLoaderPlugin } from 'vue-loader';
 import TerserPlugin from 'terser-webpack-plugin';
+import localPostcssOptions from './postcss.config';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import localPostcssOptions from './postcss.config.js';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import type { WebpackConfiguration } from 'webpack-dev-server';
 import JsonMinimizerPlugin from 'json-minimizer-webpack-plugin';
 
-export default (env, argv) => {
-	const isDevelopmentMode = argv.mode === 'development';
+export default (env: Record<string, unknown>) => {
+	const isDevelopmentMode = env.WEBPACK_SERVE?.toString() === 'true';
 
-	/** @type {import('webpack').Configuration} */
-	const config = {
+	return {
 		entry: {
 			scifluo: path.resolve('./src/main.js'),
 		},
@@ -23,16 +24,20 @@ export default (env, argv) => {
 				type: 'umd2',
 			},
 		},
-		/** @type {import('webpack-dev-server').Configuration} */
 		devServer: {
 			hot: true,
-			port: Math.floor(Math.random() * 10001) + 10000,
+			port: 8200,
 			open: false,
 			host: '127.0.0.1',
 			static: [path.resolve('./public')],
-			devMiddleware: {
-				writeToDisk: true,
-			},
+			proxy: [
+				{
+					context: ['/'],
+					target: 'http://127.0.0.1:8201',
+					changeOrigin: true,
+					pathRewrite: { '^/': '' },
+				},
+			],
 		},
 		cache: {
 			type: 'filesystem',
@@ -43,7 +48,12 @@ export default (env, argv) => {
 					test: /\.css$/,
 					use: [
 						MiniCssExtractPlugin.loader,
-						'css-loader',
+						{
+							loader: 'css-loader',
+							options: {
+								importLoaders: 1,
+							},
+						},
 						{
 							loader: 'postcss-loader',
 							options: {
@@ -56,7 +66,12 @@ export default (env, argv) => {
 					test: /\.less$/,
 					use: [
 						MiniCssExtractPlugin.loader,
-						'css-loader',
+						{
+							loader: 'css-loader',
+							options: {
+								importLoaders: 2,
+							},
+						},
 						{
 							loader: 'postcss-loader',
 							options: {
@@ -72,10 +87,6 @@ export default (env, argv) => {
 					generator: {
 						filename: 'assets/fonts/[name][hash][ext]',
 					},
-				},
-				{
-					test: /\.svg$/,
-					type: 'asset/source',
 				},
 				{
 					test: /\.js$/,
@@ -94,10 +105,6 @@ export default (env, argv) => {
 					},
 				},
 			],
-		},
-		optimization: {
-			minimize: isDevelopmentMode ? false : true,
-			minimizer: [new TerserPlugin(), new CssMinimizerPlugin(), new JsonMinimizerPlugin()],
 		},
 		plugins: [
 			new webpack.ProgressPlugin(),
@@ -118,9 +125,49 @@ export default (env, argv) => {
 					},
 				],
 			}),
+			env.analyze ? new BundleAnalyzerPlugin() : undefined,
 		],
-		devtool: 'source-map',
-	};
-
-	return config;
+		optimization: {
+			minimize: isDevelopmentMode ? false : true,
+			minimizer: [
+				new JsonMinimizerPlugin(),
+				new TerserPlugin({
+					terserOptions: {
+						ecma: 2020,
+						compress: {
+							drop_console: true,
+							dead_code: true,
+						},
+						mangle: {
+							keep_fnames: false,
+						},
+						output: {
+							comments: false,
+						},
+					},
+				}),
+				new CssMinimizerPlugin({
+					minimizerOptions: {
+						preset: [
+							'default',
+							{
+								discardDuplicates: true,
+								mergeRules: true,
+								mergeMedia: true,
+								level: {
+									1: {
+										specialComments: 'none',
+									},
+									2: {
+										removeUnused: true,
+									},
+								},
+							},
+						],
+					},
+				}),
+			],
+		},
+		devtool: isDevelopmentMode ? 'eval-cheap-module-source-map' : false,
+	} satisfies WebpackConfiguration;
 };

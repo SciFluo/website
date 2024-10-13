@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		"allowJs": true,
+		"target": "ES2020",
+		"module": "ESNext",
+		"outDir": "./build", // 解决 js 报错
+		"esModuleInterop": true,
+		"moduleResolution": "Bundler"
+	},
+	"ts-node": {
+		"compilerOptions": {
+			"esm": true,
+			"target": "ES5",
+			"module": "CommonJS"
+		}
+	}
+}

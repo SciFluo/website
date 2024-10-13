@@ -2,8 +2,7 @@
 
 var hexo = hexo || {};
 
-hexo.extend.helper.register('getPage', function (url) {
-	const vuePages = 'page/vue.ejs';
+/*
 	const routes = [
 		{ path: 'wiki/*', template: 'page/wiki/wiki.ejs' },
 		{ path: '404.html', template: 'page/404.ejs' },
@@ -11,16 +10,7 @@ hexo.extend.helper.register('getPage', function (url) {
 		{ path: 'map/index.html', template: vuePages },
 		{ path: 'settings/index.html', template: vuePages },
 	];
-
-	for (const route of routes) {
-		const regex = new RegExp(`^${route.path.replace(/\*/g, '.*')}$`);
-		if (regex.test(url)) {
-			return route.template;
-		}
-	}
-
-	return 'page/index.ejs';
-});
+*/
 
 // 首页
 hexo.extend.generator.register('home', () => {
@@ -28,6 +18,17 @@ hexo.extend.generator.register('home', () => {
 		path: 'index.html',
 		data: {},
 		layout: 'layout',
+	};
+});
+
+// 百科
+hexo.extend.generator.register('wiki', () => {
+	return {
+		path: 'wiki/index.html',
+		data: {
+			title: '百科',
+		},
+		layout: 'pages/wiki_index',
 	};
 });
 

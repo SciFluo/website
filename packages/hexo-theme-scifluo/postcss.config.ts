@@ -1,8 +1,8 @@
 import tailwindcss from 'tailwindcss';
 import postcssImport from 'postcss-import';
 import postcssPresetEnv from 'postcss-preset-env';
+import type { Config } from 'postcss-load-config';
 
-/** @type {import("postcss-load-config").Config} */
 export default {
 	plugins: [
 		postcssImport(),
@@ -11,4 +11,4 @@ export default {
 			stage: 0,
 		}),
 	],
-};
+} satisfies Config;

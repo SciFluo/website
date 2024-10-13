@@ -77,7 +77,7 @@ meta_generator: true
 
 # 服务器设置
 server:
-    port: 8000
+    port: 8201
     ip: 127.0.0.1
 
 # 包括或不包括目录和文件

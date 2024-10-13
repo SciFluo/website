@@ -7,14 +7,16 @@
 			<div class="space-y-2">
 				<h2 class="text-xl">Pangu</h2>
 				<div class="setting-item">
-					<Switch storageKey="settings.pangu.enable" :defaultValue="false"></Switch>
+					<SciFluo-Switch storage-key="settings.pangu.enable" :default-value="false"></SciFluo-Switch>
 					<label>启用 Pangu</label>
 				</div>
 			</div>
 			<div class="space-y-2">
 				<h2 class="text-xl">Toc</h2>
 				<div class="setting-item">
-					<Switch storageKey="settings.toc.scroll_change_url.enable" :defaultValue="true"></Switch>
+					<SciFluo-Switch
+						storage-key="settings.toc.scroll_change_url.enable"
+						:default-value="true"></SciFluo-Switch>
 					<label>启用滑动页面自动修改URL锚点</label>
 				</div>
 			</div>
@@ -30,8 +32,9 @@ import Switch from './switch.vue';
 import { toast } from 'vue3-toastify';
 
 export default {
+	name: 'SciFluoPagesSettings',
 	components: {
-		Switch,
+		'SciFluo-Switch': Switch,
 	},
 	methods: {
 		resetSettings() {

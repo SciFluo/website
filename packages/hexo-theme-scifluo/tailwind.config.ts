@@ -1,7 +1,12 @@
 import daisyui from 'daisyui';
 import defaultTheme from 'tailwindcss/defaultTheme';
+import type { Config as daisyuiConfig } from 'daisyui';
+import type { Config as tailwindcssConfig } from 'tailwindcss';
 
-/** @type {import('tailwindcss').Config} */
+interface Config extends tailwindcssConfig {
+	daisyui: daisyuiConfig;
+}
+
 export default {
 	content: [
 		'./src/**/*.{js,vue}',
@@ -21,14 +26,13 @@ export default {
 				},
 			},
 			fontFamily: {
-				default: ['LXGW WenKai', 'Noto Color Emoji', ...defaultTheme.fontFamily.sans],
+				serif: ['LXGW WenKai', 'Noto Color Emoji', ...defaultTheme.fontFamily.serif],
 			},
 		},
 	},
-	/** @type {import('daisyui').Config} */
 	daisyui: {
 		logs: false,
 		themes: ['nord'],
 		darkTheme: 'nord',
 	},
-};
+} satisfies Config;

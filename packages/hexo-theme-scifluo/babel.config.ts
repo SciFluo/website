@@ -1,6 +1,5 @@
-/**
- * @type {import('@babel/core').TransformOptions}
- * */
+import type { TransformOptions } from '@babel/core';
+
 export default {
 	presets: [
 		[
@@ -10,5 +9,6 @@ export default {
 				corejs: 3,
 			},
 		],
+		'@babel/preset-typescript',
 	],
-};
+} satisfies TransformOptions;

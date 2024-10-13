@@ -2,9 +2,9 @@
 	"recommendations": [
 		"vue.volar",
 		"j69.ejs-beautify",
-		"taodongwu.ejs-snippets",
 		"esbenp.prettier-vscode",
 		"dbaeumer.vscode-eslint",
+		"taodongwu.ejs-snippets",
 		"bradlc.vscode-tailwindcss",
 		"editorconfig.editorconfig",
 		"bradlc.vscode-tailwindcss",

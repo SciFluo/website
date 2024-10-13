@@ -6,6 +6,7 @@
 import map from './main.js';
 
 export default {
+	name: 'SciFluoPagesMap',
 	mounted() {
 		map();
 	},

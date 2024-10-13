@@ -6,12 +6,12 @@
 </head>
 
 <body data-overlayscrollbars-initialize>
-	<%- include('components/header.ejs') %>
+	<%- include('common/header.ejs') %>
 	<div class="flex-1 p-4">
-		<%- include(getPage(page.path)) %>
+		<%- body %>
 	</div>
-	<%- include('components/footer.ejs') %>
-	<%- include('components/noscript.ejs') %>
+	<%- include('common/footer.ejs') %>
+	<%- include('common/noscript.ejs') %>
 </body>
 
 </html>

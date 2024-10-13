@@ -12,5 +12,10 @@
 		"ejs": "html",
 		"vue": "html"
 	},
-	"dependi.npm.lockFileEnabled": false
+	"emmet.includeLanguages": {
+		"ejs": "html"
+	},
+	"emmet.syntaxProfiles": {
+		"ejs": "html"
+	}
 }
